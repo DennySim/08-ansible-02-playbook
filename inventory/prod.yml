@@ -1,6 +1,15 @@
 ---
 elasticsearch:
   hosts:
-    localhost:
+    es01:
       ansible_connection: ssh
+      ansible_port: 3022
       ansible_user: root
+      ansible_ssh_pass: root   
+kibana:
+  hosts:
+    kib01:
+      ansible_connection: ssh
+      ansible_port: 2022
+      ansible_user: root
+      ansible_ssh_pass: root

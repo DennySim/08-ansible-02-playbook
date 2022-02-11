@@ -1,0 +1,29 @@
+version: '3.8'
+
+services: 
+
+  es01:
+    image: sickp/centos-sshd
+    container_name: es01
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+
+    ports:
+      - 9200:9200
+      - 3022:22
+    networks:
+      - elastic
+
+  kib01:
+    image: sickp/centos-sshd
+    container_name: kib01
+    ports:
+      - 5601:5601
+      - 2022:22
+
+networks:
+  elastic:
+    driver: bridge
+    attachable: true
